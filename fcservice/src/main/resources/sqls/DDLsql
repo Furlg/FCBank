@@ -1,0 +1,14 @@
+#DDL(data definition language) 数据定义语句
+#建库建表设置约束等
+
+/***创建metcdb***/
+  CREATE DATABASE  IF NOT EXISTS  menagerie CHARACTER SET 'UTF8';
+
+/***创建company公司表***/
+  CREATE TABLE  IF NOT EXISTS `company` (
+  `companycode` varchar(8) NOT NULL COMMENT '公司代码',
+  `companyname` varchar(20) NOT NULL COMMENT '公司名称',
+  `founddate` datetime DEFAULT NULL COMMENT '公司创建日期',
+  `legalperson` varchar(20) NOT NULL COMMENT '公司法人',
+  PRIMARY KEY (`companycode`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=UTF8 COMMENT='公司表';
