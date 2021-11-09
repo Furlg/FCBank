@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.E001")
+@MapperScan("com.trade")
 public class FcserviceApplication {
 
     public static void main(String[] args) {
