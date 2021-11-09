@@ -13,12 +13,12 @@ spring:
       cache: false    #页面不加载缓存，修改即时生效
 
 server:
-  port: 9091
+  port: 9090
 
 #打印sql
 logging:
   level:
-    com.E001 : debug
+    com.trade : debug
 
 #mybatis配置
 
