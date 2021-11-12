@@ -1,50 +1,29 @@
 package com.trade.D001.T0001.Service;
 
-import com.trade.D001.T0001.Entity.UserEntity;
+
 import com.trade.D001.T0001.Entity.UserEntityKey;
 import com.trade.D001.T0001.Entity.UserEntityWithBLOBs;
-import com.trade.D001.T0001.Mapper.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.omg.CORBA.OBJ_ADAPTER;
 
-import java.util.List;
+import java.util.*;
 
-@Service
-public class UserService implements UserMapper {
+public interface UserService {
 
-    @Autowired
-    private com.trade.D001.T0001.Mapper.UserMapper userMapper;
 
     /**
-     * delete
+     * 查询全量UserEntityWithBLOBs
      *
-     * @param key
-     * @return int 受影响的行数
+     * @return List<UserEntityWithBLOBs> </>
      */
-    @Override
-    public int deleteByPrimaryKey(UserEntityKey key) {
-        return 0;
-    }
+    public List<UserEntityWithBLOBs> findUserEntityBLOBsAll();
+
 
     /**
-     * insert
-     *
-     * @param record
-     * @return int 受影响的行数
+     * 查询全量UserEntitywithBLOBs 根据主键排序
+     * @return  TreeSet<UserEntityWithBLOBs>
      */
-    @Override
-    public int insert(UserEntityWithBLOBs record) {
-        return 0;
-    }
+    public TreeSet<UserEntityWithBLOBs> findUserEntityBLOBsAllToSort();
 
-    /**
-     * @param record
-     * @return int 受影响的行数
-     */
-    @Override
-    public int insertSelective(UserEntityWithBLOBs record) {
-        return 0;
-    }
 
     /**
      * 根据主键select
@@ -52,39 +31,22 @@ public class UserService implements UserMapper {
      * @param key
      * @return UserEntityWithBLOBs
      */
-    @Override
-    public UserEntityWithBLOBs selectByPrimaryKey(UserEntityKey key) {
-        return userMapper.selectByPrimaryKey(key);
-    }
+    public UserEntityWithBLOBs selectByPrimaryKey(UserEntityKey key);
 
     /**
-     * 查询全量UserEntityWithBLOBs
      *
-     * @return List<UserEntityWithBLOBs> </>
+     * 返回Map对象
+     *
      */
-    @Override
-    public List<UserEntityWithBLOBs> findUserEntityBLOBsAll() {
-        return userMapper.findUserEntityBLOBsAll();
-    }
+    public HashMap<Object, Object> findUserBLOBsALL();
 
-    @Override
-    public int updateByPrimaryKeySelective(UserEntityWithBLOBs record) {
-        return 0;
-    }
-
-    @Override
-    public int updateByPrimaryKeyWithBLOBs(UserEntityWithBLOBs record) {
-        return 0;
-    }
+    /****
+     * 返回一个LinkedHashMap ,LinkedHashMap保证顺序 即访问顺序恒等于插入顺序
+     */
+    public LinkedHashMap<Object,Object> findUserByLinkedHashMap();
 
     /**
-     * 根据主键更新
-     *
-     * @param record
-     * @return 受影响的行数
+     * 返回一个TreeMap  TreeMap按照自然顺序进行排序
      */
-    @Override
-    public int updateByPrimaryKey(UserEntity record) {
-        return 0;
-    }
+    public TreeMap<Object,Object> findUserByTreeMap(UserEntityKey userEntityKey);
 }
