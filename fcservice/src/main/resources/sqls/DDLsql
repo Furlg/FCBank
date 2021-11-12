@@ -1,7 +1,7 @@
 #DDL(data definition language) 数据定义语句
 #建库建表设置约束等
 
-/***创建metcdb***/
+/***创建menagerie数据库***/
   CREATE DATABASE  IF NOT EXISTS  menagerie CHARACTER SET 'UTF8';
 
 /***创建company公司表***/

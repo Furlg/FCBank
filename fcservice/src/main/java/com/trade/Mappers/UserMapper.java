@@ -1,4 +1,4 @@
-package com.trade.D001.T0001.Mapper;
+package com.trade.Mappers;
 
 import com.trade.D001.T0001.Entity.UserEntity;
 import com.trade.D001.T0001.Entity.UserEntityKey;

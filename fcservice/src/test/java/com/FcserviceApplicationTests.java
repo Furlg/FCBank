@@ -1,22 +1,20 @@
 package com;
 
-import com.trade.D001.T0001.Entity.UserEntityKey;
-import com.trade.D001.T0001.Service.UserService;
+import com.trade.D001.T0001.Service.UserServiceImp;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.concurrent.Callable;
 
 @SpringBootTest
 class FcserviceApplicationTests {
 
     @Autowired
-    UserService userService;
-
+    UserServiceImp userService;
 
     @Test
     void contextLoads() {
+        System.out.println(userService.findUserEntityBLOBsAll());
     }
 
 }
