@@ -1,4 +1,4 @@
-package com.trade.D001.T0001;
+package com.utils;
 
 import com.message.ErrorCodeAndMessage;
 import com.message.GlobalException;

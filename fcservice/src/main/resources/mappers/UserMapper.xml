@@ -50,6 +50,8 @@
     <result column="x509_issuer" jdbcType="BLOB" property="x509Issuer" />
     <result column="x509_subject" jdbcType="BLOB" property="x509Subject" />
   </resultMap>
+
+  <!--Base_Column_List标签内字段顺序为返回后访问顺序-->
   <sql id="Base_Column_List">
     `Host`, `User`, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, 
     Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv, Grant_priv, References_priv, 
@@ -64,7 +66,7 @@
     ssl_cipher, x509_issuer, x509_subject
   </sql>
 
-  <!--查询单体记录-->
+  <!--查询单条记录-->
   <select id="selectByPrimaryKey" parameterType="com.trade.D001.T0001.Entity.UserEntityKey" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
