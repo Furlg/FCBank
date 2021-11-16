@@ -1,0 +1,64 @@
+/****
+ *
+ * List:有序的Collection(序列)即插入的顺序和访问的顺序是一致的。
+ *
+ * 	在列表上迭代通常是优于用索引遍历列表,因此List中list.get(index)的速度要优于数组中array[index]
+ * 		ArrayList LinkedList Vector Stack
+ *
+ * 		ArrayList:
+ * 			(1)允许重复的值,允许多个null
+ * 			(2)默认大小为10
+ * 			(3)ArrayList不具备自动排序功能,因为底层是使用数据实现的因此可以使用Arrays类中的方法Arrays.sort(arrayList)进行排序。
+ * 			(4)此类是不同步的。
+ * 			(5)插入的顺序较慢,因为每次插入数据后都会将后面的数据向后移动。
+ * 		LinkedList:
+ * 			(1)双重链接链表的实现方式,(1:单项链接链表 2:双重链接列表 3:循环链接链表)
+ * 			(2)实现对双端队列两端访问元素的方法,提供插入,移除,检查的方法。
+ * 			(3)队列可以这样理解就是元素按照一定的顺序进出序列collection(先进先出,先进后出,后进先出,后进后出etc.)进出之后元素也就不存在了.参考消息队列的意义.
+ *
+ * Set:一个不包含重复元素的collection,并且最多包含一个null值(即有些set不能包含null有些可以包含null但最多只能有一个null值)
+ *  	HashSet,LinkedHashSet,TreeSet
+ *
+ *  	HashSet：
+ *  		(1)允许包含一个null,可以插入多个null但是迭代的时候只会迭代出一个null
+ *  		(2)不保证迭代顺序为插入顺序
+ *  		(3)此实现不是同步的
+ *  		(4)由哈希表(实际上是一个hashMap实例)支持
+ *
+ *  	LinkedHashSet:
+ *  		(1):LinkedHashSet继承于HashSet。
+ *  		(2):此实例由hash表和链接链表实现,维护着一个运行于所有条目的双重链接链表,定义了迭代顺序即按照将元素插入到set中的顺序进行迭代。
+ *  		(3):此实现允许最多一个null值,且此实现不同步.
+ *  		(4):迭代器创建完成后如果对set进行修改,除非通过自身的remove方法,其他任何时间任何方式的修改此实现迭代器将会是快速失败的。也就是会抛异常
+ * 			(5):允许包含一个null,可以插入多个null但是迭代的时候只会迭代出一个null
+ * 		TreeSet:
+ * 			(1):具有指定的排序规则的collection
+ * 			(2):此实现是不同步的,此类的iterator方法返回的迭代器是快速失败的。
+ * 			(3):不允许null值插入,运行时异常
+ * 			(4):有个顺序迭代器iterator还有个逆序迭代器treeSet.descendingIterator
+ *
+ * 		LinkedHashMap 保证访问顺序等于插入顺序.HashMap和HashTable不保证访问顺序等于插入顺序.
+ * Map:将键映射到值的对象,一个映射不能包含相同的键且一个最多只能映射到一个值。
+ * 		HashMap,HashTable,LinkedHashMap,TreeMap
+ *
+ * 		HashMap：
+ * 			(1)除了非同步和允许使用null作为键和值之外,HashMap和HashTable大致相同。此类不保证映射的顺序,即访问舒徐不等于插入顺序,特别是它不保证此顺序恒久不变.
+ * 			(2)HashMap.put()方法允许插入重复键但是前面put进去的值会被后面重复键put进去的值覆盖掉。
+ * 			(3)HashMap.values()以collection形式返回所有键所对应的值,一个collection视图 ->[沙建斌, 男, null, 22, 67]
+ * 			(4)HashMap.entySet()返回此映射所包含映射关系的Set视图 ->[22=沙建斌, 11=男, null=null, 12=22, 101=67]
+ * 			(5)HashMap.keySet()返回此映射中所包含键的Set视图 ->[22, 11, null, 12, 101]
+ *
+ * 		HashTable：
+ * 			(1)此类实现一个Hash表,此类将键映射到相应的值,任何非null对象都可以作为键或值,且此类是同步的其他与HashMap大致相同.
+ *
+ * 		LinkedHashMap:
+ * 			(1)LinkedHashMap继承于HashMap,Hash表和链接列表的实现.此类维护着一个运行于所有条目的双重链接列表。此链接链表定义了迭代顺序,该迭代顺序通常就是将键插入到映射中的顺序(插入顺序)
+ * 			(2)此实现是不同步的,迭代器方法返回是快速失败的。且允许使用null
+
+ * 		TreeMap：
+ * 			(1)基于红黑树(red-black-tree)的NavigableMap实现,该映射根据其键的自然顺序进行排序,或者根据创建映射时提供的Comparator进行排序,具体取决使用的构造方法.
+ * 			(2)此类是不同步的,collection的iterator方法返回的迭代器都是快速失败的
+ * 			(3)此类实现了良好的排序功能,因此可以获取映射最大键/最小键,获取一个区间内所有映射的部分视图,获取映射第一个键(最低键)/最后一个键(最高键)-->可以参考LinkedList关于排序方面说明
+ * @author shaji
+ *   --->2021-11-16还有待补充的协议
+ */

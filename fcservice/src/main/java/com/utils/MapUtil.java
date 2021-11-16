@@ -5,10 +5,7 @@ import com.message.GlobalException;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * POJO对象转成Map
@@ -33,6 +30,7 @@ public class MapUtil {
                 throw new GlobalException(ErrorCodeAndMessage.ERROR_UNKNOWN);
             }
         });
+        ArrayList
         return hashMap;
     }
 }

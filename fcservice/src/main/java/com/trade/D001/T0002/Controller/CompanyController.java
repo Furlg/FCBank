@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping(value = "T0002")
@@ -17,7 +18,6 @@ public class CompanyController {
     CompanyServiceImp companyServiceImp;
 
     Response response ;
-
     @PostMapping(value = "Q01")
     public Response selectByPrimaryKey(){
         response = new Response(companyServiceImp.selectByPrimaryKey("10000810"));
