@@ -20,7 +20,7 @@ public class CompanyController {
     Response response ;
     @PostMapping(value = "Q01")
     public Response selectByPrimaryKey(){
-        response = new Response(companyServiceImp.selectByPrimaryKey("10000810"));
+        response = new Response(companyServiceImp.selectByPrimaryKey("10000010"));
         return  response;
     }
 }

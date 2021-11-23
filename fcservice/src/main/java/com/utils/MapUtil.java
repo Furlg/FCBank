@@ -30,7 +30,6 @@ public class MapUtil {
                 throw new GlobalException(ErrorCodeAndMessage.ERROR_UNKNOWN);
             }
         });
-        ArrayList
         return hashMap;
     }
 }
