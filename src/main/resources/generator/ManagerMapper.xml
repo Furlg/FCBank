@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hoop.Mappers.ManagerMapper">
+  <resultMap id="BaseResultMap" type="hoop.Trade.T001.Entity.ManagerEntity">
+    <id column="MANAGER_ID" jdbcType="VARCHAR" property="managerId" />
+    <result column="MANAGER_NAME" jdbcType="VARCHAR" property="managerName" />
+    <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="MANAGER_ROLE" jdbcType="OTHER" property="managerRole" />
+    <result column="ACTIVE" jdbcType="OTHER" property="active" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MANAGER_ID, MANAGER_NAME, PHONE_NUMBER, EMAIL, MANAGER_ROLE, ACTIVE, `PASSWORD`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from te_om_manager
+    where MANAGER_ID = #{managerId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from te_om_manager
+    where MANAGER_ID = #{managerId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="MANAGER_ID" keyProperty="managerId" parameterType="hoop.Trade.T001.Entity.ManagerEntity" useGeneratedKeys="true">
+    insert into te_om_manager (MANAGER_NAME, PHONE_NUMBER, EMAIL, 
+      MANAGER_ROLE, ACTIVE, `PASSWORD`
+      )
+    values (#{managerName,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{managerRole,jdbcType=OTHER}, #{active,jdbcType=OTHER}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="MANAGER_ID" keyProperty="managerId" parameterType="hoop.Trade.T001.Entity.ManagerEntity" useGeneratedKeys="true">
+    insert into te_om_manager
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="managerName != null">
+        MANAGER_NAME,
+      </if>
+      <if test="phoneNumber != null">
+        PHONE_NUMBER,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="managerRole != null">
+        MANAGER_ROLE,
+      </if>
+      <if test="active != null">
+        ACTIVE,
+      </if>
+      <if test="password != null">
+        `PASSWORD`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="managerName != null">
+        #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="managerRole != null">
+        #{managerRole,jdbcType=OTHER},
+      </if>
+      <if test="active != null">
+        #{active,jdbcType=OTHER},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="hoop.Trade.T001.Entity.ManagerEntity">
+    update te_om_manager
+    <set>
+      <if test="managerName != null">
+        MANAGER_NAME = #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="managerRole != null">
+        MANAGER_ROLE = #{managerRole,jdbcType=OTHER},
+      </if>
+      <if test="active != null">
+        ACTIVE = #{active,jdbcType=OTHER},
+      </if>
+      <if test="password != null">
+        `PASSWORD` = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MANAGER_ID = #{managerId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="hoop.Trade.T001.Entity.ManagerEntity">
+    update te_om_manager
+    set MANAGER_NAME = #{managerName,jdbcType=VARCHAR},
+      PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      MANAGER_ROLE = #{managerRole,jdbcType=OTHER},
+      ACTIVE = #{active,jdbcType=OTHER},
+      `PASSWORD` = #{password,jdbcType=VARCHAR}
+    where MANAGER_ID = #{managerId,jdbcType=VARCHAR}
+  </update>
+</mapper>
